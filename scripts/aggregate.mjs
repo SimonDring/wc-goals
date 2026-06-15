@@ -15,6 +15,7 @@ const ALIAS_GROUPS = [
   ["Cabo Verde", "Cape Verde"],
   ["Türkiye", "Turkey"],
   ["DR Congo", "Congo DR", "Democratic Republic of Congo", "DR Congo (Zaire)"],
+  ["Iran", "IR Iran", "Iran (Islamic Republic of)"],
 ];
 const ALIAS_LOOKUP = new Map();
 for (const group of ALIAS_GROUPS) {
