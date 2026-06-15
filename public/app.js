@@ -64,9 +64,20 @@ function render(data) {
     $("#mypick-head").classList.add("hidden");
   }
 
-  fill($("#top-most"), data.topMost, (p) => personLi(p));
-  fill($("#top-least"), data.topLeast, (p) => personLi(p));
-  fill($("#people-all"), data.people, (p) => personLi(p));
+  // data.people is sorted most-goals-first; ascending is the reverse order
+  const peopleAsc = [...data.people].sort(
+    (a, b) => a.goals - b.goals || a.name.localeCompare(b.name, "en"));
+
+  // Dashboard: top 3 of each category
+  fill($("#dash-most"), data.people.slice(0, 3), (p) => personLi(p));
+  fill($("#dash-least"), peopleAsc.slice(0, 3), (p) => personLi(p));
+  fill($("#dash-teams"), data.teams.slice(0, 3), teamLi);
+
+  // Full overall leaderboards
+  fill($("#people-desc"), data.people, (p) => personLi(p));
+  fill($("#people-asc"), peopleAsc, (p) => personLi(p));
+
+  // Every team
   fill($("#teams-all"), data.teams, teamLi);
 
   $("#unmatched").textContent = data.unmatchedTeams.length

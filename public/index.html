@@ -12,7 +12,9 @@
     <p id="updated" class="updated">Loading…</p>
     <input id="search" type="search" placeholder="Search a name or team…" autocomplete="off" />
     <nav class="tabs">
-      <button data-tab="people" class="active">People</button>
+      <button data-tab="dash" class="active">Dashboard</button>
+      <button data-tab="desc">Most ↓</button>
+      <button data-tab="asc">Fewest ↑</button>
       <button data-tab="teams">Teams</button>
     </nav>
   </header>
@@ -21,17 +23,27 @@
     <h2 id="mypick-head" class="hidden">⭐ Your pick</h2>
     <ol id="mypick" class="board"></ol>
 
-    <section id="people" class="tab active">
-      <h2>🏆 Top 10 — most goals</h2>
-      <ol id="top-most" class="board"></ol>
-      <h2>🥄 Top 10 — fewest goals</h2>
-      <ol id="top-least" class="board"></ol>
-      <h2>Everyone</h2>
-      <ol id="people-all" class="board"></ol>
+    <section id="dash" class="tab active">
+      <h2>🏆 Top 3 — most goals</h2>
+      <ol id="dash-most" class="board"></ol>
+      <h2>🥄 Bottom 3 — fewest goals</h2>
+      <ol id="dash-least" class="board"></ol>
+      <h2>⚽ Top 3 teams</h2>
+      <ol id="dash-teams" class="board"></ol>
+    </section>
+
+    <section id="desc" class="tab">
+      <h2>Overall leaderboard — most goals first</h2>
+      <ol id="people-desc" class="board"></ol>
+    </section>
+
+    <section id="asc" class="tab">
+      <h2>Overall leaderboard — fewest goals first</h2>
+      <ol id="people-asc" class="board"></ol>
     </section>
 
     <section id="teams" class="tab">
-      <h2>Teams by goals</h2>
+      <h2>Every team by goals</h2>
       <ol id="teams-all" class="board"></ol>
     </section>
   </main>
