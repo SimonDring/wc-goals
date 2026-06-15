@@ -12,10 +12,11 @@ const ALIAS_GROUPS = [
   ["South Korea", "Korea Republic", "Korea, South"],
   ["USA", "United States", "United States of America", "USMNT"],
   ["Côte d'Ivoire", "Ivory Coast", "Cote d'Ivoire"],
-  ["Cabo Verde", "Cape Verde"],
   ["Türkiye", "Turkey"],
   ["DR Congo", "Congo DR", "Democratic Republic of Congo", "DR Congo (Zaire)"],
   ["Iran", "IR Iran", "Iran (Islamic Republic of)"],
+  ["Cabo Verde", "Cape Verde", "Cape Verde Islands"],
+  ["Bosnia and Herzegovina", "Bosnia-Herzegovina", "Bosnia & Herzegovina"],
 ];
 const ALIAS_LOOKUP = new Map();
 for (const group of ALIAS_GROUPS) {
@@ -63,17 +64,37 @@ function withRanks(sortedPeople) {
     return { ...p, rank };
   });
 }
+// Every team appearing in the tournament feed (any status), key -> canonical display.
+// A team that hasn't kicked off yet is still in the roster; it just has 0 goals.
+export function rosterFromMatches(matches) {
+  const roster = new Map();
+  for (const m of matches) {
+    for (const t of [m.homeTeam, m.awayTeam]) {
+      if (!t?.name) continue;
+      const key = resolveTeamKey(t.name);
+      if (!roster.has(key)) roster.set(key, CANONICAL_DISPLAY.get(key) ?? t.name);
+    }
+  }
+  return roster;
+}
 export function buildLeaderboard(matches, assignments, now = new Date()) {
   const table = tallyTeamGoals(matches);
+  const roster = rosterFromMatches(matches);
   const goalsFor = (teamName) => table.get(resolveTeamKey(teamName))?.goals ?? 0;
-  const teams = [...table.values()]
-    .map((r) => ({ team: r.display, goals: r.goals, matchesPlayed: r.matchesPlayed }))
+  // Every team in the tournament, including those yet to play (0 goals, 0 played).
+  const teams = [...roster.entries()]
+    .map(([key, display]) => {
+      const row = table.get(key);
+      return { team: display, goals: row?.goals ?? 0, matchesPlayed: row?.matchesPlayed ?? 0 };
+    })
     .sort((a, b) => b.goals - a.goals || a.team.localeCompare(b.team, "en"));
-  const seenKeys = new Set(table.keys());
+  // Only flag assignments whose team never appears in the tournament at all
+  // (a genuine name mismatch or non-qualifier) — not teams simply yet to play.
+  const rosterKeys = new Set(roster.keys());
   const unmatchedTeams = [];
   for (const pair of Object.values(assignments)) {
     for (const teamName of pair) {
-      if (!seenKeys.has(resolveTeamKey(teamName)) && !unmatchedTeams.includes(teamName)) {
+      if (!rosterKeys.has(resolveTeamKey(teamName)) && !unmatchedTeams.includes(teamName)) {
         unmatchedTeams.push(teamName);
       }
     }

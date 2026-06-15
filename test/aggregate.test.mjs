@@ -41,6 +41,7 @@ test("buildLeaderboard ranks people by combined goals with joint ranks", () => {
     Pete: ["France", "South Africa"],
     David: ["Japan", "Czechia"],
     Twin1: ["France", "South Africa"],
+    Yetto: ["Argentina", "Paraguay"], // both only in a SCHEDULED match — yet to play
   };
   const data = buildLeaderboard(sample.matches, assignments);
   assert.equal(data.teams[0].team, "France");
@@ -52,7 +53,13 @@ test("buildLeaderboard ranks people by combined goals with joint ranks", () => {
   assert.equal(pete.rank, 1);
   assert.equal(twin.rank, 1);
   assert.equal(data.people.find((p) => p.name === "David").rank, 3);
+  // Japan never appears in the feed at all → genuine mismatch, flagged
   assert.ok(data.unmatchedTeams.includes("Japan"));
+  // Argentina/Paraguay are in the tournament but yet to play → NOT flagged, shown at 0
+  assert.ok(!data.unmatchedTeams.includes("Argentina"));
+  const arg = data.teams.find((t) => t.team === "Argentina");
+  assert.equal(arg.goals, 0);
+  assert.equal(arg.matchesPlayed, 0);
 });
 
 test("buildLeaderboard uses injected timestamp", () => {

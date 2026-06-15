@@ -1,8 +1,915 @@
 {
-  "updatedAt": null,
-  "teams": [],
-  "people": [],
-  "topMost": [],
-  "topLeast": [],
+  "updatedAt": "2026-06-15T21:41:51.555Z",
+  "teams": [
+    {
+      "team": "Germany",
+      "goals": 7,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Sweden",
+      "goals": 5,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "USA",
+      "goals": 4,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Australia",
+      "goals": 2,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Japan",
+      "goals": 2,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Mexico",
+      "goals": 2,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Netherlands",
+      "goals": 2,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "South Korea",
+      "goals": 2,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Belgium",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Brazil",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Canada",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Côte d'Ivoire",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Curaçao",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Czechia",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Egypt",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Morocco",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Paraguay",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Qatar",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Scotland",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Switzerland",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Tunisia",
+      "goals": 1,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Algeria",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Argentina",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Austria",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Cabo Verde",
+      "goals": 0,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Colombia",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Croatia",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "DR Congo",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Ecuador",
+      "goals": 0,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "England",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "France",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Ghana",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Haiti",
+      "goals": 0,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Iran",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Iraq",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Jordan",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "New Zealand",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Norway",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Panama",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Portugal",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Saudi Arabia",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Senegal",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "South Africa",
+      "goals": 0,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Spain",
+      "goals": 0,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Türkiye",
+      "goals": 0,
+      "matchesPlayed": 1
+    },
+    {
+      "team": "Uruguay",
+      "goals": 0,
+      "matchesPlayed": 0
+    },
+    {
+      "team": "Uzbekistan",
+      "goals": 0,
+      "matchesPlayed": 0
+    }
+  ],
+  "people": [
+    {
+      "name": "Jack",
+      "teams": [
+        "Germany",
+        "Curaçao"
+      ],
+      "breakdown": [
+        7,
+        1
+      ],
+      "goals": 8,
+      "rank": 1
+    },
+    {
+      "name": "Laurie",
+      "teams": [
+        "Germany",
+        "Norway"
+      ],
+      "breakdown": [
+        7,
+        0
+      ],
+      "goals": 7,
+      "rank": 2
+    },
+    {
+      "name": "Patricia",
+      "teams": [
+        "Belgium",
+        "Sweden"
+      ],
+      "breakdown": [
+        1,
+        5
+      ],
+      "goals": 6,
+      "rank": 3
+    },
+    {
+      "name": "Matthew",
+      "teams": [
+        "USA",
+        "Scotland"
+      ],
+      "breakdown": [
+        4,
+        1
+      ],
+      "goals": 5,
+      "rank": 4
+    },
+    {
+      "name": "Scott",
+      "teams": [
+        "Colombia",
+        "Sweden"
+      ],
+      "breakdown": [
+        0,
+        5
+      ],
+      "goals": 5,
+      "rank": 4
+    },
+    {
+      "name": "Áine",
+      "teams": [
+        "USA",
+        "Jordan"
+      ],
+      "breakdown": [
+        4,
+        0
+      ],
+      "goals": 4,
+      "rank": 6
+    },
+    {
+      "name": "David",
+      "teams": [
+        "Japan",
+        "Czechia"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Dylan",
+      "teams": [
+        "Australia",
+        "Côte d'Ivoire"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Fergus",
+      "teams": [
+        "Mexico",
+        "Qatar"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Jason",
+      "teams": [
+        "South Korea",
+        "Qatar"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Mel",
+      "teams": [
+        "Netherlands",
+        "Egypt"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Steven",
+      "teams": [
+        "South Korea",
+        "Bosnia and Herzegovina"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Stu",
+      "teams": [
+        "Netherlands",
+        "Tunisia"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Sarah",
+      "teams": [
+        "Japan",
+        "Ghana"
+      ],
+      "breakdown": [
+        2,
+        0
+      ],
+      "goals": 2,
+      "rank": 14
+    },
+    {
+      "name": "Finn",
+      "teams": [
+        "Switzerland",
+        "Iraq"
+      ],
+      "breakdown": [
+        1,
+        0
+      ],
+      "goals": 1,
+      "rank": 15
+    },
+    {
+      "name": "Geoff",
+      "teams": [
+        "Morocco",
+        "Algeria"
+      ],
+      "breakdown": [
+        1,
+        0
+      ],
+      "goals": 1,
+      "rank": 15
+    },
+    {
+      "name": "Johnny",
+      "teams": [
+        "Brazil",
+        "Ghana"
+      ],
+      "breakdown": [
+        1,
+        0
+      ],
+      "goals": 1,
+      "rank": 15
+    },
+    {
+      "name": "Ken",
+      "teams": [
+        "Portugal",
+        "Curaçao"
+      ],
+      "breakdown": [
+        0,
+        1
+      ],
+      "goals": 1,
+      "rank": 15
+    },
+    {
+      "name": "Sam",
+      "teams": [
+        "Argentina",
+        "Paraguay"
+      ],
+      "breakdown": [
+        0,
+        1
+      ],
+      "goals": 1,
+      "rank": 15
+    },
+    {
+      "name": "Simon",
+      "teams": [
+        "Croatia",
+        "Canada"
+      ],
+      "breakdown": [
+        0,
+        1
+      ],
+      "goals": 1,
+      "rank": 15
+    },
+    {
+      "name": "Ali",
+      "teams": [
+        "Spain",
+        "Uzbekistan"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Alice",
+      "teams": [
+        "Uruguay",
+        "New Zealand"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Andrew",
+      "teams": [
+        "Ecuador",
+        "New Zealand"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Anna",
+      "teams": [
+        "Iran",
+        "DR Congo"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Christina",
+      "teams": [
+        "Uruguay",
+        "Uzbekistan"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Ciara",
+      "teams": [
+        "England",
+        "Panama"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Dan",
+      "teams": [
+        "Austria",
+        "Saudi Arabia"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Emily",
+      "teams": [
+        "Portugal",
+        "Jordan"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Jenny",
+      "teams": [
+        "Türkiye",
+        "Cabo Verde"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Pete",
+      "teams": [
+        "France",
+        "South Africa"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Wendy",
+      "teams": [
+        "Senegal",
+        "Haiti"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    }
+  ],
+  "topMost": [
+    {
+      "name": "Jack",
+      "teams": [
+        "Germany",
+        "Curaçao"
+      ],
+      "breakdown": [
+        7,
+        1
+      ],
+      "goals": 8,
+      "rank": 1
+    },
+    {
+      "name": "Laurie",
+      "teams": [
+        "Germany",
+        "Norway"
+      ],
+      "breakdown": [
+        7,
+        0
+      ],
+      "goals": 7,
+      "rank": 2
+    },
+    {
+      "name": "Patricia",
+      "teams": [
+        "Belgium",
+        "Sweden"
+      ],
+      "breakdown": [
+        1,
+        5
+      ],
+      "goals": 6,
+      "rank": 3
+    },
+    {
+      "name": "Matthew",
+      "teams": [
+        "USA",
+        "Scotland"
+      ],
+      "breakdown": [
+        4,
+        1
+      ],
+      "goals": 5,
+      "rank": 4
+    },
+    {
+      "name": "Scott",
+      "teams": [
+        "Colombia",
+        "Sweden"
+      ],
+      "breakdown": [
+        0,
+        5
+      ],
+      "goals": 5,
+      "rank": 4
+    },
+    {
+      "name": "Áine",
+      "teams": [
+        "USA",
+        "Jordan"
+      ],
+      "breakdown": [
+        4,
+        0
+      ],
+      "goals": 4,
+      "rank": 6
+    },
+    {
+      "name": "David",
+      "teams": [
+        "Japan",
+        "Czechia"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Dylan",
+      "teams": [
+        "Australia",
+        "Côte d'Ivoire"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Fergus",
+      "teams": [
+        "Mexico",
+        "Qatar"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    },
+    {
+      "name": "Jason",
+      "teams": [
+        "South Korea",
+        "Qatar"
+      ],
+      "breakdown": [
+        2,
+        1
+      ],
+      "goals": 3,
+      "rank": 7
+    }
+  ],
+  "topLeast": [
+    {
+      "name": "Ali",
+      "teams": [
+        "Spain",
+        "Uzbekistan"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Alice",
+      "teams": [
+        "Uruguay",
+        "New Zealand"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Andrew",
+      "teams": [
+        "Ecuador",
+        "New Zealand"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Anna",
+      "teams": [
+        "Iran",
+        "DR Congo"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Christina",
+      "teams": [
+        "Uruguay",
+        "Uzbekistan"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Ciara",
+      "teams": [
+        "England",
+        "Panama"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Dan",
+      "teams": [
+        "Austria",
+        "Saudi Arabia"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Emily",
+      "teams": [
+        "Portugal",
+        "Jordan"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Jenny",
+      "teams": [
+        "Türkiye",
+        "Cabo Verde"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    },
+    {
+      "name": "Pete",
+      "teams": [
+        "France",
+        "South Africa"
+      ],
+      "breakdown": [
+        0,
+        0
+      ],
+      "goals": 0,
+      "rank": 21
+    }
+  ],
   "unmatchedTeams": []
 }
