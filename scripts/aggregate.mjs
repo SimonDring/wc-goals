@@ -47,3 +47,46 @@ export function tallyTeamGoals(matches) {
   }
   return table;
 }
+
+function withRanks(sortedPeople) {
+  let lastGoals = null;
+  let lastRank = 0;
+  return sortedPeople.map((p, i) => {
+    const rank = p.goals === lastGoals ? lastRank : i + 1;
+    lastGoals = p.goals;
+    lastRank = rank;
+    return { ...p, rank };
+  });
+}
+export function buildLeaderboard(matches, assignments) {
+  const table = tallyTeamGoals(matches);
+  const goalsFor = (teamName) => table.get(resolveTeamKey(teamName))?.goals ?? 0;
+  const teams = [...table.values()]
+    .map((r) => ({ team: r.display, goals: r.goals, matchesPlayed: r.matchesPlayed }))
+    .sort((a, b) => b.goals - a.goals || a.team.localeCompare(b.team));
+  const seenKeys = new Set(table.keys());
+  const unmatchedTeams = [];
+  for (const pair of Object.values(assignments)) {
+    for (const teamName of pair) {
+      if (!seenKeys.has(resolveTeamKey(teamName)) && !unmatchedTeams.includes(teamName)) {
+        unmatchedTeams.push(teamName);
+      }
+    }
+  }
+  const peopleSorted = Object.entries(assignments)
+    .map(([name, pair]) => {
+      const breakdown = pair.map(goalsFor);
+      return { name, teams: pair, breakdown, goals: breakdown[0] + breakdown[1] };
+    })
+    .sort((a, b) => b.goals - a.goals || a.name.localeCompare(b.name));
+  const people = withRanks(peopleSorted);
+  const ascending = [...people].sort((a, b) => a.goals - b.goals || a.name.localeCompare(b.name));
+  return {
+    updatedAt: new Date().toISOString(),
+    teams,
+    people,
+    topMost: people.slice(0, 10),
+    topLeast: ascending.slice(0, 10),
+    unmatchedTeams,
+  };
+}
