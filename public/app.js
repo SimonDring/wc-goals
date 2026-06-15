@@ -51,7 +51,8 @@ function fill(ol, items, fn) {
 
 function render(data) {
   window.__data = data;
-  $("#updated").textContent = "Updated " + timeAgo(data.updatedAt);
+  const ago = timeAgo(data.updatedAt);
+  $("#updated").textContent = data.updatedAt ? "Updated " + ago : ago;
 
   // pin favourite to the top of "Everyone"
   const fav = favName();

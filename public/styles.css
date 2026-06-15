@@ -20,7 +20,7 @@ h2 { font-size:1rem; color:var(--muted); margin:20px 0 8px; }
 .name { font-weight:700; }
 .sub { color:var(--muted); font-size:.8rem; }
 .goals { margin-left:auto; font-size:1.4rem; font-weight:800; font-variant-numeric:tabular-nums; }
-.star { cursor:pointer; background:none; border:none; font-size:1.2rem; opacity:.4; }
+.star { cursor:pointer; background:none; border:none; font-size:1.2rem; opacity:.4; padding:6px 10px; min-width:44px; min-height:44px; }
 .star.on { opacity:1; }
 .hidden { display:none; }
 .unmatched { padding:0 16px 24px; color:var(--muted); font-size:.75rem; }
