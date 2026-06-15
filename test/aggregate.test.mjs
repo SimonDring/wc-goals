@@ -1,6 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalizeName, resolveTeamKey } from "../scripts/aggregate.mjs";
+import { readFileSync } from "node:fs";
+import { normalizeName, resolveTeamKey, tallyTeamGoals } from "../scripts/aggregate.mjs";
+
+const sample = JSON.parse(
+  readFileSync(new URL("./fixtures/matches.sample.json", import.meta.url))
+);
 
 test("normalizeName strips accents and lowercases", () => {
   assert.equal(normalizeName("Côte d'Ivoire"), "cote d'ivoire");
@@ -18,4 +23,14 @@ test("resolveTeamKey maps aliases to one canonical key", () => {
   assert.equal(resolveTeamKey("Türkiye"), resolveTeamKey("Turkey"));
   assert.equal(resolveTeamKey("DR Congo"), resolveTeamKey("Congo DR"));
   assert.equal(resolveTeamKey("France"), "france");
+});
+
+test("tallyTeamGoals sums home+away goals across played matches", () => {
+  const t = tallyTeamGoals(sample.matches);
+  assert.equal(t.get("france").goals, 4);
+  assert.equal(t.get("france").matchesPlayed, 2);
+  assert.equal(t.get(resolveTeamKey("South Korea")).goals, 2);
+  assert.equal(t.get(resolveTeamKey("USA")).goals, 0);
+  assert.equal(t.get(resolveTeamKey("USA")).matchesPlayed, 1);
+  assert.equal(t.has("argentina"), false);
 });

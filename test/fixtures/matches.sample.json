@@ -1,0 +1,8 @@
+{
+  "matches": [
+    { "status": "FINISHED", "homeTeam": { "name": "France" }, "awayTeam": { "name": "South Africa" }, "score": { "fullTime": { "home": 3, "away": 1 } } },
+    { "status": "FINISHED", "homeTeam": { "name": "Korea Republic" }, "awayTeam": { "name": "Czech Republic" }, "score": { "fullTime": { "home": 2, "away": 2 } } },
+    { "status": "IN_PLAY", "homeTeam": { "name": "France" }, "awayTeam": { "name": "United States" }, "score": { "fullTime": { "home": 1, "away": 0 } } },
+    { "status": "SCHEDULED", "homeTeam": { "name": "Argentina" }, "awayTeam": { "name": "Paraguay" }, "score": { "fullTime": { "home": null, "away": null } } }
+  ]
+}

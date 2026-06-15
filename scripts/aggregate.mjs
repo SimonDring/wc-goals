@@ -27,3 +27,23 @@ export function resolveTeamKey(name) {
   const norm = normalizeName(name);
   return ALIAS_LOOKUP.get(norm) ?? norm;
 }
+
+const PLAYED = new Set(["FINISHED", "IN_PLAY", "PAUSED"]);
+export function tallyTeamGoals(matches) {
+  const table = new Map();
+  const bump = (rawName, goals) => {
+    const key = resolveTeamKey(rawName);
+    const row = table.get(key) ?? { display: rawName, goals: 0, matchesPlayed: 0 };
+    row.goals += goals;
+    row.matchesPlayed += 1;
+    table.set(key, row);
+  };
+  for (const m of matches) {
+    if (!PLAYED.has(m.status)) continue;
+    const home = m.score?.fullTime?.home ?? 0;
+    const away = m.score?.fullTime?.away ?? 0;
+    bump(m.homeTeam.name, home);
+    bump(m.awayTeam.name, away);
+  }
+  return table;
+}
