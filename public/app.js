@@ -54,14 +54,19 @@ function render(data) {
   const ago = timeAgo(data.updatedAt);
   $("#updated").textContent = data.updatedAt ? "Updated " + ago : ago;
 
-  // pin favourite to the top of "Everyone"
-  const fav = favName();
-  const everyone = [...data.people].sort((a, b) =>
-    (b.name === fav) - (a.name === fav) || a.rank - b.rank);
+  // pin the favourited person to the very top of the page
+  const mine = data.people.find((p) => p.name === favName());
+  if (mine) {
+    fill($("#mypick"), [mine], (p) => personLi(p));
+    $("#mypick-head").classList.remove("hidden");
+  } else {
+    $("#mypick").replaceChildren();
+    $("#mypick-head").classList.add("hidden");
+  }
 
   fill($("#top-most"), data.topMost, (p) => personLi(p));
   fill($("#top-least"), data.topLeast, (p) => personLi(p));
-  fill($("#people-all"), everyone, (p) => personLi(p));
+  fill($("#people-all"), data.people, (p) => personLi(p));
   fill($("#teams-all"), data.teams, teamLi);
 
   $("#unmatched").textContent = data.unmatchedTeams.length
