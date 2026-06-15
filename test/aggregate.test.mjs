@@ -33,6 +33,7 @@ test("tallyTeamGoals sums home+away goals across played matches", () => {
   assert.equal(t.get(resolveTeamKey("USA")).goals, 0);
   assert.equal(t.get(resolveTeamKey("USA")).matchesPlayed, 1);
   assert.equal(t.has("argentina"), false);
+  assert.equal(t.get("brazil").goals, 2);
 });
 
 test("buildLeaderboard ranks people by combined goals with joint ranks", () => {
@@ -54,6 +55,11 @@ test("buildLeaderboard ranks people by combined goals with joint ranks", () => {
   assert.ok(data.unmatchedTeams.includes("Japan"));
 });
 
+test("buildLeaderboard uses injected timestamp", () => {
+  const data = buildLeaderboard(sample.matches, { A: ["France", "Japan"] }, new Date("2026-06-15T12:00:00Z"));
+  assert.equal(data.updatedAt, "2026-06-15T12:00:00.000Z");
+});
+
 test("buildLeaderboard exposes top 10 most and least", () => {
   const assignments = Object.fromEntries(
     Array.from({ length: 15 }, (_, i) => [`P${i}`, ["France", "South Africa"]])
@@ -61,4 +67,5 @@ test("buildLeaderboard exposes top 10 most and least", () => {
   const data = buildLeaderboard(sample.matches, assignments);
   assert.equal(data.topMost.length, 10);
   assert.equal(data.topLeast.length, 10);
+  assert.ok(data.topLeast[0].goals <= data.topLeast[9].goals);
 });

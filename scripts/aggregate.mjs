@@ -23,6 +23,10 @@ for (const group of ALIAS_GROUPS) {
     ALIAS_LOOKUP.set(normalizeName(spelling), canonicalKey);
   }
 }
+const CANONICAL_DISPLAY = new Map();
+for (const group of ALIAS_GROUPS) {
+  CANONICAL_DISPLAY.set(normalizeName(group[0]), group[0]);
+}
 export function resolveTeamKey(name) {
   const norm = normalizeName(name);
   return ALIAS_LOOKUP.get(norm) ?? norm;
@@ -33,7 +37,7 @@ export function tallyTeamGoals(matches) {
   const table = new Map();
   const bump = (rawName, goals) => {
     const key = resolveTeamKey(rawName);
-    const row = table.get(key) ?? { display: rawName, goals: 0, matchesPlayed: 0 };
+    const row = table.get(key) ?? { display: CANONICAL_DISPLAY.get(key) ?? rawName, goals: 0, matchesPlayed: 0 };
     row.goals += goals;
     row.matchesPlayed += 1;
     table.set(key, row);
@@ -58,12 +62,12 @@ function withRanks(sortedPeople) {
     return { ...p, rank };
   });
 }
-export function buildLeaderboard(matches, assignments) {
+export function buildLeaderboard(matches, assignments, now = new Date()) {
   const table = tallyTeamGoals(matches);
   const goalsFor = (teamName) => table.get(resolveTeamKey(teamName))?.goals ?? 0;
   const teams = [...table.values()]
     .map((r) => ({ team: r.display, goals: r.goals, matchesPlayed: r.matchesPlayed }))
-    .sort((a, b) => b.goals - a.goals || a.team.localeCompare(b.team));
+    .sort((a, b) => b.goals - a.goals || a.team.localeCompare(b.team, "en"));
   const seenKeys = new Set(table.keys());
   const unmatchedTeams = [];
   for (const pair of Object.values(assignments)) {
@@ -76,13 +80,13 @@ export function buildLeaderboard(matches, assignments) {
   const peopleSorted = Object.entries(assignments)
     .map(([name, pair]) => {
       const breakdown = pair.map(goalsFor);
-      return { name, teams: pair, breakdown, goals: breakdown[0] + breakdown[1] };
+      return { name, teams: pair, breakdown, goals: breakdown.reduce((sum, g) => sum + g, 0) };
     })
-    .sort((a, b) => b.goals - a.goals || a.name.localeCompare(b.name));
+    .sort((a, b) => b.goals - a.goals || a.name.localeCompare(b.name, "en"));
   const people = withRanks(peopleSorted);
-  const ascending = [...people].sort((a, b) => a.goals - b.goals || a.name.localeCompare(b.name));
+  const ascending = [...people].sort((a, b) => a.goals - b.goals || a.name.localeCompare(b.name, "en"));
   return {
-    updatedAt: new Date().toISOString(),
+    updatedAt: now.toISOString(),
     teams,
     people,
     topMost: people.slice(0, 10),
