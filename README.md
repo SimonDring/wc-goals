@@ -1,7 +1,8 @@
 # ⚽ WC 2026 Goals Sweepstake
 
 Auto-updating leaderboard: every team's World Cup goals, and each family member's two
-teams combined. Hosted free on GitHub Pages, refreshed every 30 minutes.
+teams combined. Hosted free on GitHub Pages, rebuilt every 15 minutes; an open page
+also re-fetches the latest scores every minute (and on tab focus) without a reload.
 
 ## One-time deploy (~5 min)
 

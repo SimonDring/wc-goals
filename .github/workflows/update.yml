@@ -2,7 +2,7 @@ name: Update goals & deploy
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # every 30 minutes
+    - cron: "*/15 * * * *"   # every 15 minutes (practical floor for Actions schedules)
   workflow_dispatch: {}       # manual "Run now" button
   push:
     branches: [main]

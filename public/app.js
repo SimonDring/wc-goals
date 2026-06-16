@@ -106,7 +106,28 @@ function initTabs() {
 
 $("#search").addEventListener("input", applySearch);
 initTabs();
-fetch("data.json")
-  .then((r) => r.json())
-  .then(render)
-  .catch(() => { $("#updated").textContent = "Could not load scores."; });
+
+// Auto-refresh: re-fetch data.json on an interval (and when the tab regains
+// focus) so an open dashboard updates without a manual reload. The cache-buster
+// query param defeats the GitHub Pages CDN cache so we always get the latest
+// published scores. Server-side cron republishes every ~15 min, which is the
+// real ceiling on freshness; this just keeps the visible page in step with it.
+const REFRESH_MS = 60_000; // poll once a minute
+
+async function load() {
+  try {
+    const r = await fetch("data.json?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    render(await r.json());
+  } catch (e) {
+    // On first load show an error; on later polls keep the current scores on
+    // screen and silently try again next tick.
+    if (!window.__data) $("#updated").textContent = "Could not load scores.";
+  }
+}
+
+load();
+setInterval(load, REFRESH_MS);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") load();
+});
